@@ -18,9 +18,17 @@ public class UIDistanceBetween : MonoBehaviour
         m_Text = GetComponent<Text>();
     }
 
+    #if UNITY_EDITOR
     private void Update()
     {
+        // EXECUTE ALWAYS
+        FixedUpdate();
+    }
+    #endif
+
+    private void FixedUpdate()
+    {
         var distance = Vector3.Distance(m_A.position, m_B.position);
-        m_Text.text = string.Format(m_TextTemplate, distance);
+        m_Text.text = string.Format(m_TextTemplate, distance.ToString("F2"));
     }
 }
