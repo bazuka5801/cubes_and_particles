@@ -5,6 +5,9 @@ public class MoveCube : MonoBehaviour
     [SerializeField][Tooltip("WASD move keys")]
     private KeyCode[] moveKeys = new KeyCode[4];
     
+    [SerializeField][Range(0.1f, 1f)]
+    private float m_Speed;
+    
     private Vector3[] m_MoveVectors = 
     {
         // W - Up
@@ -18,6 +21,20 @@ public class MoveCube : MonoBehaviour
     };
 
     private Vector3 m_MoveVector = Vector3.zero;
+    private Transform m_Transform;
+    
+    private void Awake()
+    {
+        /*
+         * Little known fact: all of the component accessors in MonoBehaviour, things like transform,
+         * renderer, and audio, are equivalent to their GetComponent(Transform) counterparts,
+         * and they are actually a bit slow. GameObject.FindWithTag has been optimized,
+         * but in some cases, for example, in inner loops, or on scripts that run on a lot of instances,
+         * this script might be a bit slow.
+         */
+        m_Transform = transform;
+    }
+
     private void Update()
     {
         m_MoveVector = Vector3.zero;
@@ -26,5 +43,10 @@ public class MoveCube : MonoBehaviour
             if (Input.GetKey(moveKeys[i]))
                 m_MoveVector += m_MoveVectors[i];
         }
+    }
+
+    private void FixedUpdate()
+    {
+        m_Transform.position += m_MoveVector * (Time.fixedDeltaTime * m_Speed);
     }
 }
