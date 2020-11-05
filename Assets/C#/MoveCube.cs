@@ -2,10 +2,10 @@
 
 public class MoveCube : MonoBehaviour
 {
-    [SerializeField][Tooltip("WASD move keys")]
+    [SerializeField, Tooltip("WASD move keys")]
     private KeyCode[] moveKeys = new KeyCode[4];
     
-    [SerializeField][Range(0.1f, 1f)]
+    [SerializeField, Range(0.1f, 1f)]
     private float m_Speed;
     
     private Vector3[] m_MoveVectors = 

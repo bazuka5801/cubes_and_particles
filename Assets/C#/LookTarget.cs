@@ -2,8 +2,7 @@
 
 public class LookTarget : MonoBehaviour
 {
-    [SerializeField]
-    private Transform m_Target;
+    [SerializeField] private Transform m_Target;
     private Transform m_Transform;
     
     private void Awake()
