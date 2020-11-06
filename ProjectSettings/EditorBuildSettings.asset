@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cubes.unity
     guid: 34d5c0d8f3c4049c59c566ccf50ae129
+  - enabled: 1
+    path: Assets/Scenes/Particles.unity
+    guid: 7ea3eff4c8ae94c238572e70656a4dcc
   m_configObjects: {}

@@ -250,8 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f5f50974fa542f9906bdea93e190b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_A: {fileID: 1225552755}
-  m_B: {fileID: 1309576702}
+  m_DistanceCalculator: {fileID: 963194230}
   m_TextTemplate: "\u0414\u0438\u0441\u0442\u0430\u043D\u0446\u0438\u044F \u043C\u0435\u0436\u0434\u0443
     <color=#dd0000>\u043A\u0443\u0431\u0430\u043C\u0438</color>: <color=#00bb00>{0}</color>"
 --- !u!114 &197287851
@@ -5720,6 +5719,8 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194230}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5792,6 +5793,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 12.9470005, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb0fa02706246f9bc82562ce3c3eb7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DistanceCalculator: {fileID: 963194230}
+  m_SpheresContainer: {fileID: 1932564893}
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e654edbd670541ceb960f214061e992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_A: {fileID: 1225552755}
+  m_B: {fileID: 1309576702}
+  Distance: 6.83
 --- !u!1 &1052278901
 GameObject:
   m_ObjectHideFlags: 0
@@ -11717,7 +11747,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'FPS: <color=#bbbb00>24</color>'
+  m_Text: 'FPS: <color=#bbbb00>1</color>'
 --- !u!222 &1931037474
 CanvasRenderer:
   m_ObjectHideFlags: 0

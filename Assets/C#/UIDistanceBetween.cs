@@ -5,8 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text)), ExecuteAlways]
 public class UIDistanceBetween : MonoBehaviour
 {
-    [SerializeField] private Transform m_A;
-    [SerializeField] private Transform m_B;
+    [SerializeField] private DistanceCalculator m_DistanceCalculator;
     [SerializeField, TextArea]
     private string m_TextTemplate = "Дистанция между <color=#dd0000>кубами</color>: <color=#00bb00>{0}</color>";
 
@@ -18,17 +17,9 @@ public class UIDistanceBetween : MonoBehaviour
         m_Text = GetComponent<Text>();
     }
 
-    #if UNITY_EDITOR
     private void Update()
     {
-        // EXECUTE ALWAYS
-        FixedUpdate();
-    }
-    #endif
-
-    private void FixedUpdate()
-    {
-        var distance = Vector3.Distance(m_A.position, m_B.position);
+        var distance = m_DistanceCalculator.Distance;
         m_Text.text = string.Format(m_TextTemplate, distance.ToString("F2"));
     }
 }
